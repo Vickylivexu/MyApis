@@ -1,0 +1,17 @@
+{
+  "login_001": {
+      "url" : "http://ttapi.research.itcast.cn/app/v1_0/authorizations",
+      "mobile" : "13800138000",
+      "code" : "123456",
+      "expect_result" : "",
+      "status_code" : 201},
+  "login_002": {
+      "url" : "http://ttapi.research.itcast.cn/app/v1_0/authorizations",
+      "mobile" : "18610453007",
+      "code" : "654321",
+      "expect_result" : "err",
+      "status_code" : 400
+  }
+
+
+}

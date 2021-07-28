@@ -1,0 +1,85 @@
+接口自动化测试目录结构
+    接口对象层（api）
+        1.登录.py(login.py)
+        2.获取频道列表.py
+        3.文章
+            收藏文章
+            取消收藏文章
+    用例业务层（case）
+        test_login.py
+        test_channel.py
+        test_article.py
+    报告（report）
+    工具层（tools）
+    数据层（data）
+    运行入口（run_suite.py）
+
+编写读取json工具
+    导入json
+    新建读取工具类
+        使用初始化方法，获取要读取的文件名称
+            self.filepath = "../data/" + filename
+
+多条用例数据扩展
+    json文件
+        以用例编号作为键名，值使用单条字典测试数据
+    读取json文件
+        使用字典的values()获取所有的值
+        其他与单条接口用例方法一致
+    参数化
+        修改get_data数据格式
+        调用同单条接口用例数据一样
+
+
+顺序啊顺序
+1.API对象层
+    新建api 即项目模块
+        导入requests类
+        新建对象且继承object
+2.case业务实现
+    新建业务层用例
+        导入unittest api
+        新建测试类，继承unittest。TestCase
+        新建测试方法
+            1.临时数据
+            2.调用XX方法
+            3.断言（状态码，响应信息）
+3.data参数化
+    用例的参数化
+        数据存储文件--data下json文件
+        内容：参数1，参数2.。。
+    数据读取
+        导入json方法
+        获取并加载文件流
+        with open("../data/login.json" , "r" , encoding="utf-8") as f:
+        data = json.load(f)
+    参数化应用
+        导包 parameterized
+        应用@parameterized.expand（get_data（））
+        函数get_data()
+4.tools
+    三方工具json读取
+    数据读取
+        导入json方法
+        获取并加载文件流
+        with open("../data/login.json" , "r" , encoding="utf-8") as f:
+        data = json.load(f)
+
+5.运行主入口
+    run_suite.py
+        操作：
+            a.导包 unittest HTMLTestRunner time
+            b.组装测试套件
+            c.定义报告存放路径及文件名
+            d.运行测试套件生成测试报告
+
+附加：
+1.项目中数据库应用
+    特定场景下，需从数据库获取相应记录来断言或判断相关接口是否执行成功
+    可以将正式环境数据库拷贝至本地检查
+    1.1数据库
+        数据库工具类封装
+            #主要方法（sql fetchone、fetchall、增删改）
+            #辅助方法（连接对象/游标对象）
+
+

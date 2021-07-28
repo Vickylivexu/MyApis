@@ -1,0 +1,9 @@
+{
+  "url" : "http://ttapi.research.itcast.cn/app/v1_0/article/collections/1",
+  "headers" : {"Content-Type":"application/x-www-from-rulencoded",
+                    "Authorization":"Bearer token"},
+  "code" : "",
+  "data" : {"target" :  1},
+  "expect_result" : "",
+  "status_code" : 204
+}
